@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+#select-form {
+    vertical-align: middle;
+    margin-top: 15%;
+}
+#name {
+    padding-top: 5%;
+    
+}
+#select-label {
+    font-size: larger;
+    padding-right: 5px;
+}
+#select-address{
+    height: auto;
+    width: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger;
+    border-radius: 10px;
+}
+
+#select-submit{
+    background-color: lightgray;
+    font-size: large;
+    margin-left: 98px;
+    border-width: 1px;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin-top: 10px;
+}
+
+#select-submit:hover{
+    cursor: pointer;
+    background-color: wheat;
+
+}

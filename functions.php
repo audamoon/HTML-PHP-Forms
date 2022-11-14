@@ -25,17 +25,24 @@ function findOptGroups ($generalArray) {
     }
     return $addressesArray;
 }
-
-function echoToHTML ($fDataArray, $selectGroups) {
+function echoToHTML($fDataArray) {
+    for ($counter = 0; $counter < count($fDataArray); $counter++) {
+        $address = $fDataArray[$counter]["address"];
+        $addressNumber = $fDataArray[$counter]["addressNumber"];
+        $combinedAddress = $address . " " . $addressNumber;
+        print "<option value=\"{$counter}\">{$combinedAddress}</option>";
+    }
+}
+/*function echoToHTML ($fDataArray, $selectGroups) {
     foreach ($selectGroups as $group) {
-        print "<optgroup label=\"{$group}\">\n";
+        print "<optgroup label=\"{$group}\">";
         for ($counter = 0; $counter < count($fDataArray);$counter++) {
                 $address = $fDataArray[$counter]['address'];
                 $addressNumber = $fDataArray[$counter]['addressNumber'];
                     if ($address == $group) {
-                    print "<option value=\"{$counter}\">{$addressNumber}</option>\n";
+                    print "<option value=\"{$counter}\">{$addressNumber}</option>";
                     }
        }
     }
-}
+}*/
 ?>
