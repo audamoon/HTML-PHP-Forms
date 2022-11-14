@@ -1,7 +1,8 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     vertical-align: middle;
+    font-family:Roboto;
+    font-weight: 400;
 }
 #select-form {
     vertical-align: middle;
@@ -9,29 +10,36 @@ body {
 }
 #name {
     padding-top: 5%;
+    padding-left: 2%;
     
 }
 #select-label {
-    font-size: larger;
     padding-right: 5px;
+    font-size: larger;
 }
 #select-address{
     height: auto;
     width: auto;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto;
+    font-weight: 400;
     font-size: larger;
     border-radius: 10px;
+}
+#select-address:hover{
+    cursor: pointer;
 }
 
 #select-submit{
     background-color: lightgray;
-    font-size: large;
-    margin-left: 98px;
+    transition: 0.5s;
     border-width: 1px;
     border-radius: 10px;
-    transition: 0.5s;
+    margin-left: 98px;
     margin-top: 10px;
+    font-size: large;
+    font-family: Roboto;
+    font-weight: 400;
 }
 
 #select-submit:hover{
