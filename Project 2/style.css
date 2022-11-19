@@ -1,12 +1,19 @@
 body{
     font-family: "Roboto";
-    padding: 28px;
+    padding: 50px;
 }
 #appeal-form {
     display: block;
 }
+#appeal-form input {
+    line-height: 15px;
+    width: 200px;
+    font-family: inherit;
+    margin-bottom: 10px;
+}
 #appeal {
     list-style-type: none;
+    padding: 0;
     counter-reset: item;
 }
 #appeal li:before{
@@ -21,9 +28,9 @@ label.standart {
     display:block;
 
 }
-input {
-    font-family: inherit;
-    margin-bottom: 10px;
+
+#submit-button-div {
+    width:150px;
 }
 #button {
     margin-top: 20px;
@@ -42,4 +49,11 @@ input {
 }
 span.asterisk{
     color:red;
+}
+p.error {
+    margin-left: 5px;
+    display: inline;
+    color:red;
+    font-weight: bold;
+    font-size: 15px;
 }
