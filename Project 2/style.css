@@ -7,6 +7,9 @@ body{
     line-height: 1.7em;
     color: #414141;
 }
+footer {
+    height: 100px;
+}
 
 #appeal-form {
     display: block;
@@ -16,6 +19,22 @@ body{
     width: 300px;
     max-width: 100%;
     font-family: inherit;
+    margin-bottom: 1rem;
+}
+#appeal-form textarea {
+    height: 200px;
+    width: 400px;
+    max-width: 100%;
+    font-family: inherit;
+    margin-bottom: 1rem;
+}
+#appeal-form select{
+    padding: 1em 0.3em 1em;
+    width: 300px;
+    max-width: 100%;
+    font-size: large;
+    font-family: inherit;
+    color:inherit;
     margin-bottom: 1rem;
 }
 #appeal {

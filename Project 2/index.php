@@ -23,7 +23,7 @@
                 <?php 
                 require "functions.php"; //подключение файла с функциями
                 require "configure.php"; //подключение конфигурационного файла
-                if (isset($_POST['btnSubmit']) and !count($errors)) {
+                if (isset($_POST['btnSubmit']) and !count($errorsObject->errors)) {
                     require "success.php";
                 } else {
                     require "fail.php";
@@ -31,6 +31,7 @@
             </form>
         </div>
     </div>
+    <footer></footer>
 </body>
 
 </html>

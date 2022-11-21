@@ -1,7 +1,10 @@
 <?php
-$errors = validateForm();
+$errorsObject = new errorsClass; //создаем объект с ошибками
+$errorsObject->validateForm(); //проверяем форму на ошибки
 $defaults = array(
     'full_name' => '',
-    'email' => ''
+    'email' => '',
+    'phone_number' => ''
 );
-$defaults = defaultsChanging($errors, $defaults); ?>
+$defaults = defaultsChanging($errorsObject, $defaults); //заполняем значения введённые пользователем
+?>

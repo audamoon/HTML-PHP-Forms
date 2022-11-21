@@ -1,38 +1,54 @@
-<?php 
-function sanitizeInputData($inputVar){
+<?php
+function sanitizeInputData($inputVar)
+{
     $inputVar = strip_tags($inputVar);
-    $inputVar = htmlentities ($inputVar);
+    $inputVar = htmlentities($inputVar);
     return $inputVar;
 }
-
-function validateForm() { //Поиск ошибок в форме
-    $errors = array();
-    $full_name = filter_input(INPUT_POST, 'full_name');
-    if ( $full_name !== null or $full_name === '') {
-        if ((mb_strlen(filter_input(INPUT_POST,'full_name'),"UTF-8") == 0)) {
-            $errors['full_name'] = "Заполните поле";
-        } 
+class ErrorsClass
+{
+    public $errors = array();
+    function isInputEmpty($inputName) //Проверка, пуста ли форма
+    {
+        $inputNameString = filter_input(INPUT_POST, $inputName);
+        if ($inputNameString !== null or $inputNameString === '') {
+            if ((mb_strlen(filter_input(INPUT_POST, $inputName), "UTF-8") == 0)) {
+                $this->errors[$inputName] = "Заполните поле";
+            }
+        }
     }
-    $email = filter_input(INPUT_POST,'email',FILTER_VALIDATE_EMAIL);
-    if ($email === false) {
-        $errors['email'] = "E-mail введён некорректно";
+    function validateForm() //Поиск ошибок в форме
+    {
+        $this->isInputEmpty('full_name');
+        $this->isInputEmpty('phone_number');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        if ($email === false) {
+            $this->errors['email'] = "E-mail введён некорректно";
+        }
     }
-    return $errors;
 }
-function defaultsChanging($errors, $defaults) { //сохранение значений, введённых пользователем
-    if (count($errors)) {
-        if (isset($_POST['full_name'])) {$defaults['full_name'] = sanitizeInputData($_POST['full_name']); }
-        if (isset($_POST['email'])) {$defaults['email'] = sanitizeInputData($_POST['email']); }
+function saveUserInput($inputName)
+{
+    if (isset($_POST[$inputName])) {
+        return sanitizeInputData($_POST[$inputName]);
+    }
+}
+function defaultsChanging($errorsObject, $defaults)
+{ //сохранение значений, введённых пользователем
+    if (count($errorsObject->errors)) {
+        foreach ($defaults as $inputName => $value) {
+            $defaults[$inputName] = saveUserInput($inputName);
+        }
     }
     return $defaults;
 }
-function errorCheck($errors,$inputName) { //проверка конкретной формы
+function errorCheck($errorsObject, $inputName)
+{ //проверка конкретной формы
     $successText = "\u{2713}"; //символ галки
-    if (isset($errors[$inputName])) {
-        $currentInputError = $errors[$inputName];
+    if (isset($errorsObject->errors[$inputName])) {
+        $currentInputError = $errorsObject->errors[$inputName];
         echo "<p class='error'> $currentInputError </p>";
     } elseif (isset($_POST['btnSubmit'])) {
         echo "<span class='success'> $successText </span>";
     }
 }
-?>
