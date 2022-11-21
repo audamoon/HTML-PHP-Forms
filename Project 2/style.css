@@ -1,24 +1,37 @@
+html {
+    font-size: 17px;
+}
 body{
     font-family: "Roboto";
-    padding: 50px;
+    margin: 5% 15% 0;
+    line-height: 1.7em;
+    color: #414141;
 }
+
 #appeal-form {
     display: block;
 }
 #appeal-form input {
-    line-height: 15px;
-    width: 200px;
+    line-height: 1.5em;
+    width: 300px;
+    max-width: 100%;
     font-family: inherit;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 #appeal {
     list-style-type: none;
     padding: 0;
     counter-reset: item;
+    
 }
-#appeal li:before{
-    content:"(" counter(item) ") ";
-    counter-increment: item;
+#appeal li {
+    width: 500px;
+    max-width: 100%;
+    text-align: left;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    list-style-type: disc;
+    font-weight: 400;
 }
 div {
     font-family: inherit;
@@ -26,14 +39,14 @@ div {
 label.standart {
     padding-bottom: 5px;
     display:block;
+    font-weight:bold;
 
 }
-
-#submit-button-div {
+#btnSubmit-div {
     width:150px;
+    max-width: 100%;
 }
-#button {
-    margin-top: 20px;
+#btnSubmit {
     font-family: inherit;
     font-size:18px;
     background-color: white;
@@ -42,18 +55,29 @@ label.standart {
     border-radius: 10px;
     padding: 20px 30px;
 }
-#button:hover{
+#btnSubmit:hover {
     background-color: #39B8A2;
     color:white;
     cursor: pointer;
 }
-span.asterisk{
+span.asterisk {
     color:red;
 }
+span.success {
+    color:green;
+    display: inline-block;
+    font-weight: 600;
+    margin-left: 0.5em;
+}
 p.error {
-    margin-left: 5px;
+    margin-left: 0.5em;
     display: inline;
     color:red;
     font-weight: bold;
     font-size: 15px;
+}
+p.success {
+    color:green;
+    font-weight: bold;
+    font-size: 1em;
 }
