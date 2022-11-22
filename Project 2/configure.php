@@ -4,7 +4,8 @@ $errorsObject->validateForm(); //проверяем форму на ошибки
 $defaults = array(
     'full_name' => '',
     'email' => '',
-    'phone_number' => ''
+    'phone_number' => '',
+    'message' => '',
 );
 $defaults = defaultsChanging($errorsObject, $defaults); //заполняем значения введённые пользователем
 ?>

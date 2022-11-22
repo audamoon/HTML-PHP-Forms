@@ -7,14 +7,16 @@ body{
     line-height: 1.7em;
     color: #414141;
 }
+a {
+    color:#39B8A2;
+}
 footer {
     height: 100px;
 }
-
 #appeal-form {
     display: block;
 }
-#appeal-form input {
+#appeal-form input.text {
     line-height: 1.5em;
     width: 300px;
     max-width: 100%;
@@ -27,6 +29,7 @@ footer {
     max-width: 100%;
     font-family: inherit;
     margin-bottom: 1rem;
+    display: inline;
 }
 #appeal-form select{
     padding: 1em 0.3em 1em;
@@ -56,11 +59,12 @@ div {
     font-family: inherit;
 }
 label.standart {
-    padding-bottom: 5px;
+    padding-bottom: 0.5em;
     display:block;
     font-weight:bold;
 
 }
+
 #btnSubmit-div {
     width:150px;
     max-width: 100%;
@@ -88,13 +92,19 @@ span.success {
     font-weight: 600;
     margin-left: 0.5em;
 }
-p.error {
+span.error {
     margin-left: 0.5em;
     display: inline;
     color:red;
     font-weight: bold;
     font-size: 15px;
+    vertical-align:top;
 }
+#checkboxes span.error {
+    display: block;
+    margin: 1em 0 1em;
+}
+
 p.success {
     color:green;
     font-weight: bold;

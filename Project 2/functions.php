@@ -10,21 +10,25 @@ class ErrorsClass
     public $errors = array();
     function isInputEmpty($inputName) //Проверка, пуста ли форма
     {
-        $inputNameString = filter_input(INPUT_POST, $inputName);
-        if ($inputNameString !== null or $inputNameString === '') {
-            if ((mb_strlen(filter_input(INPUT_POST, $inputName), "UTF-8") == 0)) {
+        $inputNameString = trim(filter_input(INPUT_POST, $inputName));
+        if (isset($_POST[$inputName]) and ($inputNameString == null or $inputNameString == "")) {
                 $this->errors[$inputName] = "Заполните поле";
-            }
         }
     }
     function validateForm() //Поиск ошибок в форме
     {
-        $this->isInputEmpty('full_name');
-        $this->isInputEmpty('phone_number');
+        $inputNamesArray = array('full_name','phone_number','message');
+        foreach($inputNamesArray as $inputName) {
+            $this->isInputEmpty($inputName);
+        }
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         if ($email === false) {
             $this->errors['email'] = "E-mail введён некорректно";
         }
+        if ((! isset($_POST['personal_data_argeement'])) or ! isset($_POST['personal_data_policy'])) {
+            $this->errors['personal_data'] = "Необходимо поставить галочки сверху ";
+        }
+        
     }
 }
 function saveUserInput($inputName)
@@ -47,8 +51,8 @@ function errorCheck($errorsObject, $inputName)
     $successText = "\u{2713}"; //символ галки
     if (isset($errorsObject->errors[$inputName])) {
         $currentInputError = $errorsObject->errors[$inputName];
-        echo "<p class='error'> $currentInputError </p>";
-    } elseif (isset($_POST['btnSubmit'])) {
+        echo "<span class='error'> $currentInputError </span >";
+    } elseif (isset($_POST['btnSubmit']) and $inputName !== "personal_data") {
         echo "<span class='success'> $successText </span>";
     }
 }
