@@ -13,6 +13,13 @@ a {
 footer {
     height: 100px;
 }
+div {
+    font-family: inherit;
+}
+div.captcha {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 #appeal-form {
     display: block;
 }
@@ -22,12 +29,14 @@ footer {
     max-width: 100%;
     font-family: inherit;
     margin-bottom: 1rem;
+    margin-right: 1em;
 }
 #appeal-form textarea {
     height: 200px;
     width: 400px;
     max-width: 100%;
     font-family: inherit;
+    margin-right: 1em;
     margin-bottom: 1rem;
     display: inline;
 }
@@ -55,14 +64,11 @@ footer {
     list-style-type: disc;
     font-weight: 400;
 }
-div {
-    font-family: inherit;
-}
+
 label.standart {
     padding-bottom: 0.5em;
     display:block;
     font-weight:bold;
-
 }
 
 #btnSubmit-div {
@@ -93,18 +99,18 @@ span.success {
     margin-left: 0.5em;
 }
 span.error {
-    margin-left: 0.5em;
     display: inline;
     color:red;
     font-weight: bold;
     font-size: 15px;
     vertical-align:top;
 }
-#checkboxes span.error {
+.container span.error{
     display: block;
-    margin: 1em 0 1em;
 }
-
+.container input {
+    margin-bottom: 1em;
+}
 p.success {
     color:green;
     font-weight: bold;
