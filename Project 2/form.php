@@ -27,9 +27,9 @@
         <span class="asterisk">*</span>
     </label>
     <select name="message_type" id="messageType">
-        <option value="wish">Пожелание</option>
-        <option value="certificate">Справка</option>
-        <option value="appeal">Обращение</option>
+        <option value="Пожелание">Пожелание</option>
+        <option value="Справка">Справка</option>
+        <option value="Обращение">Обращение</option>
     </select>
     <div class="container">
     <?php errorCheck($errorsObject, "personal_data"); //Согласие на обработку данных
