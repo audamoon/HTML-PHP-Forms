@@ -26,7 +26,7 @@
     <label class="standart" for="messageType">Выберите категорию обращения
         <span class="asterisk">*</span>
     </label>
-    <select name="messageType" id="messageType">
+    <select name="message_type" id="messageType">
         <option value="wish">Пожелание</option>
         <option value="certificate">Справка</option>
         <option value="appeal">Обращение</option>

@@ -30,9 +30,9 @@
                 require "functions.php"; //подключение файла с функциями
                 require "configure.php"; //подключение конфигурационного файла
                 if (isset($_POST['btnSubmit']) and !count($errorsObject->errors)) {
-                    require "success.php";
+                    require "sendMailConfig.php";
                 } else {
-                    require "fail.php"; } ?>
+                    require "form.php"; } ?>
                 
             </form>
 
